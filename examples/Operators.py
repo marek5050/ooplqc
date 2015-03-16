@@ -6,7 +6,7 @@
 
 # https://docs.python.org/3.4/library/operator.html
 
-import operator
+from operator import add
 
 print("Operators.py")
 
@@ -33,11 +33,11 @@ assert k == 5
 
 i = 2
 j = 3
-k = operator.add(i, j)
+k = add(i, j)
 assert i == 2
 assert j == 3
 assert k == 5
-#operator.add(i, j) += 1 # SyntaxError: can't assign to function call
+#add(i, j) += 1 # SyntaxError: can't assign to function call
 
 i = 2
 j = 3
