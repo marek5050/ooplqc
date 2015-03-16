@@ -28,6 +28,9 @@ class MyUnitTests (TestCase) :
     def test_5 (self) :
         self.assertEqual(factorial(5), 120)
 
+    def test_6 (self) :
+        self.assertRaises(AssertionError, factorial, -1)
+
 if __name__ == "__main__" :
     main()
 
