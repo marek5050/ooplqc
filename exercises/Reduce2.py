@@ -58,7 +58,7 @@ def bind (f) :
 reduce_for_range_tests = bind(reduce_for_range)
 reduce_while_tests     = bind(reduce_while)
 reduce_for_tests       = bind(reduce_for)
-reduce_tests            = bind(reduce)
+reduce_tests           = bind(reduce)
 
 if __name__ == "__main__" :
     main()
