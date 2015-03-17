@@ -7,25 +7,25 @@
 from unittest import main, TestCase
 
 class digits_class :
-    class iterator :
-        def __init__ (self, n) :
-            self.n = n
-
-        def __iter__ (self) :
-            return self
-
-        def __next__ (self) :
-            if self.n == 0 :
-                raise StopIteration()
-            m = self.n % 10
-            self.n //= 10
-            return m
-
     def __init__ (self, n) :
         self.n = n
 
     def __iter__ (self) :
-        return digits_class.iterator(self.n)
+        class iterator :
+            def __init__ (self, n) :
+                self.n = n
+
+            def __iter__ (self) :
+                return self
+
+            def __next__ (self) :
+                if self.n == 0 :
+                    raise StopIteration()
+                m = self.n % 10
+                self.n //= 10
+                return m
+
+        return iterator(self.n)
 
 class digits_function :
     def __init__ (self, n) :
