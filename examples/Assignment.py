@@ -6,6 +6,10 @@
 
 print("Assignment.py")
 
+t = 2, 3
+assert type(t) is tuple
+assert t       == (2, 3)
+
 #i, j = 2       # TypeError: 'int' object is not iterable
 #i, j = 2, 3, 4 # ValueError: too many values to unpack
 i, j  = 2, 3
