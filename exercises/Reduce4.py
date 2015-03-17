@@ -62,6 +62,7 @@ def bind (f) :
 
         def test_8 (self) :
             self.assertRaises(TypeError, f, sub, [])
+
     return MyUnitTests
 
 reduce_while_tests = bind(reduce_while)
