@@ -37,7 +37,7 @@ test_iterator(iter({2, 3, 4}))                         # set
 test_iterator(iter({2 : "abc", 3 : "def", 4 : "ghi"})) # dict
 test_iterator(iter([v for v in [2, 3, 4]]))            # list comprehension
 test_iterator(iter(range(2, 5)))
-test_iterator(((v for v in [2, 3, 4])))                # generator
+test_iterator(v for v in [2, 3, 4])                    # generator
 test_iterator(   map(lambda v : v,    [2, 3, 4]))
 test_iterator(filter(lambda v : True, [2, 3, 4]))
 
