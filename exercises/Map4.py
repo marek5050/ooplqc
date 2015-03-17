@@ -6,7 +6,7 @@
 
 # https://docs.python.org/3.4/library/functions.html#map
 
-from unittest import TestCase, TestLoader, TestSuite, TextTestRunner
+from unittest import main, TestCase
 
 def map_for_zip (nf, *a) :
     for v in zip(*a) :
@@ -35,11 +35,12 @@ def bind (f) :
             b = (4, 5)
             c = (6, 7)
             assert list(f(lambda x, y, z : x + y + z, a, b, c)) == [12, 15]
+
     return MyUnitTests
 
+map_for_zip_tests       = bind(map_for_zip)
+map_generator_zip_tests = bind(map_generator_zip)
+map_tests               = bind(map)
+
 if __name__ == "__main__" :
-    s = TestSuite()
-    s.addTest(TestLoader().loadTestsFromTestCase(bind(map_for_zip)))
-    s.addTest(TestLoader().loadTestsFromTestCase(bind(map_generator_zip)))
-    s.addTest(TestLoader().loadTestsFromTestCase(bind(map)))
-    TextTestRunner().run(s)
+    main()
