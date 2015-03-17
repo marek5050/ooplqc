@@ -29,4 +29,4 @@ assert not is_sorted(a, 0, 4, gt) # (1, 4, 4, 3)
 assert not is_sorted(a, 1, 5, gt) # (4, 4, 3, 5)
 assert not is_sorted(a, 1, 5, gt) # (1, 4, 4, 3, 5)
 
-print("Done.")
+print( "Done.")
