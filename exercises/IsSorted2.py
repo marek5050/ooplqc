@@ -5,6 +5,7 @@
 # -----------
 
 from operator import gt, lt
+from unittest import main, TestCase
 
 def is_sorted_recursion (a, b, e, f = lt) :
     assert(b <= e)
@@ -33,30 +34,71 @@ def is_sorted_any (a, b, e, f = lt) :
     assert(b <= e)
     return not any(f(a[i + 1], a[i]) for i in range(b, e - 1))
 
-def test (f) :
-    a = (5, 2, 2, 3, 1)
-    assert     f(a, 1, 1) # ()
-    assert     f(a, 1, 2) # (2)
-    assert     f(a, 1, 3) # (2, 2)
-    assert     f(a, 1, 4) # (2, 2, 3)
-    assert not f(a, 0, 4) # (5, 2, 2, 3)
-    assert not f(a, 1, 5) # (2, 2, 3, 1)
-    assert not f(a, 0, 5) # (5, 2, 2, 3, 1)
+def bind_lt (f) :
+    class MyUnitTests (TestCase) :
+        def setUp (self) :
+            self.a = (5, 2, 2, 3, 1)
 
-    a = (1, 4, 4, 3, 5)
-    assert     f(a, 1, 1, gt) # ()
-    assert     f(a, 1, 2, gt) # (4)
-    assert     f(a, 1, 3, gt) # (4, 4)
-    assert     f(a, 1, 4, gt) # (4, 4, 3)
-    assert not f(a, 0, 4, gt) # (1, 4, 4, 3)
-    assert not f(a, 1, 5, gt) # (4, 4, 3, 5)
-    assert not f(a, 1, 5, gt) # (1, 4, 4, 3, 5)
+        def test_1 (self) :
+            self.assertTrue(f(self.a, 1, 1)) # ()
 
-print("IsSorted.py")
+        def test_2 (self) :
+            self.assertTrue(f(self.a, 1, 2)) # (2)
 
-test(is_sorted_recursion)
-test(is_sorted_while)
-test(is_sorted_for)
-test(is_sorted_any)
+        def test_3 (self) :
+            self.assertTrue(f(self.a, 1, 3)) # (2, 2)
 
-print("Done.")
+        def test_4 (self) :
+            self.assertTrue(f(self.a, 1, 4)) # (2, 2, 3)
+
+        def test_5 (self) :
+            self.assertFalse(f(self.a, 0, 4)) # (5, 2, 2, 3)
+
+        def test_6 (self) :
+            self.assertFalse(f(self.a, 1, 5)) # (2, 2, 3, 1)
+
+        def test_7 (self) :
+            self.assertFalse(f(self.a, 0, 5)) # (5, 2, 2, 3, 1)
+
+    return MyUnitTests
+
+def bind_gt (f) :
+    class MyUnitTests (TestCase) :
+        def setUp (self) :
+            self.a = (1, 4, 4, 3, 5)
+
+        def test_1 (self) :
+            self.assertTrue(f(self.a, 1, 1, gt)) # ()
+
+        def test_2 (self) :
+            self.assertTrue(f(self.a, 1, 2, gt)) # (4)
+
+        def test_3 (self) :
+            self.assertTrue(f(self.a, 1, 3, gt)) # (4, 4)
+
+        def test_4 (self) :
+            self.assertTrue(f(self.a, 1, 4, gt)) # (4, 4, 3)
+
+        def test_5 (self) :
+            self.assertFalse(f(self.a, 0, 4, gt)) # (1, 4, 4, 3)
+
+        def test_6 (self) :
+            self.assertFalse(f(self.a, 1, 5, gt)) # (4, 4, 3, 5)
+
+        def test_7 (self) :
+            self.assertFalse(f(self.a, 0, 5, gt)) # (1, 4, 4, 3, 5)
+
+    return MyUnitTests
+
+is_sorted_recursion_tests_lt = bind_lt(is_sorted_recursion)
+is_sorted_while_tests_lt     = bind_lt(is_sorted_while)
+is_sorted_for_tests_lt       = bind_lt(is_sorted_for)
+is_sorted_any_tests_lt       = bind_lt(is_sorted_any)
+
+is_sorted_recursion_tests_gt = bind_gt(is_sorted_recursion)
+is_sorted_while_tests_gt     = bind_gt(is_sorted_while)
+is_sorted_for_tests_gt       = bind_gt(is_sorted_for)
+is_sorted_any_tests_gt       = bind_gt(is_sorted_any)
+
+if __name__ == "__main__" :
+    main()
