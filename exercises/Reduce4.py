@@ -8,9 +8,9 @@
 
 from functools import reduce
 from operator  import sub
-from unittest  import TestCase, TestLoader, TestSuite, TextTestRunner
+from unittest  import main, TestCase
 
-def reduce_1 (bf, a, v = None) :
+def reduce_while (bf, a, v = None) :
     if (not a) and (v is None) :
         raise TypeError("reduce() of empty sequence with no initial value")
     if not a :
@@ -25,7 +25,7 @@ def reduce_1 (bf, a, v = None) :
         pass
     return v
 
-def reduce_2 (bf, a, v = None) :
+def reduce_for (bf, a, v = None) :
     if (not a) and (v is None) :
         raise TypeError("reduce() of empty sequence with no initial value")
     if not a :
@@ -64,9 +64,9 @@ def bind (f) :
             self.assertRaises(TypeError, f, sub, [])
     return MyUnitTests
 
+reduce_while_tests = bind(reduce_while)
+reduce_for_tests   = bind(reduce_for)
+reduce_tests       = bind(reduce)
+
 if __name__ == "__main__" :
-    s = TestSuite()
-    s.addTest(TestLoader().loadTestsFromTestCase(bind(reduce_1)))
-    s.addTest(TestLoader().loadTestsFromTestCase(bind(reduce_2)))
-    s.addTest(TestLoader().loadTestsFromTestCase(bind(reduce)))
-    TextTestRunner().run(s)
+    main()
