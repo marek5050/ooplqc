@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # -----------
 # IsSorted.py
@@ -52,11 +52,11 @@ def test (f) :
     assert not f(a, 1, 5, gt) # (4, 4, 3, 5)
     assert not f(a, 1, 5, gt) # (1, 4, 4, 3, 5)
 
-print "IsSorted.py"
+print("IsSorted.py")
 
 test(is_sorted_recursion)
 test(is_sorted_while)
 test(is_sorted_for)
 test(is_sorted_any)
 
-print "Done."
+print("Done.")

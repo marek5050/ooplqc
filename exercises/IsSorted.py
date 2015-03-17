@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # -----------
 # IsSorted.py
@@ -9,7 +9,7 @@ from operator import gt, lt
 def is_sorted (a, b, e, f = lt) :
     ...
 
-print "IsSorted.py"
+print("IsSorted.py")
 
 a = (5, 2, 2, 3, 1)
 assert     is_sorted(a, 1, 1) # ()
@@ -29,4 +29,4 @@ assert not is_sorted(a, 0, 4, gt) # (1, 4, 4, 3)
 assert not is_sorted(a, 1, 5, gt) # (4, 4, 3, 5)
 assert not is_sorted(a, 1, 5, gt) # (1, 4, 4, 3, 5)
 
-print "Done."
+print("Done.")
