@@ -18,7 +18,8 @@ class my_string {
 
 template <typename T>
 void test () {
-    string x = "abc";
+    {
+    T x = "abc";
     assert(x.size() == 3);
     assert(x        == "abc");
     assert("abc"    == x);
@@ -29,7 +30,19 @@ void test () {
     assert(x[1]     == 'z');
     ostringstream out;
     copy(x.begin(), x.end(), ostream_iterator<char>(out));
-    assert(out.str() == "azc");};
+    assert(out.str() == "azc");
+    }
+
+    {
+    const T x = "abc";
+    assert(x.size() == 3);
+    assert(x        == "abc");
+    assert("abc"    == x);
+    assert(x[1]     == 'b');
+    ostringstream out;
+    copy(x.begin(), x.end(), ostream_iterator<char>(out));
+    assert(out.str() == "abc");
+    }};
 
 int main () {
     cout << "String.c++" << endl;
