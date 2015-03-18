@@ -39,6 +39,7 @@ void test () {
     assert(x        == "abc");
     assert("abc"    == x);
     assert(x[1]     == 'b');
+//  x[1] = 'z';                                            // error: read-only variable is not assignable
     ostringstream out;
     copy(x.begin(), x.end(), ostream_iterator<char>(out));
     assert(out.str() == "abc");
