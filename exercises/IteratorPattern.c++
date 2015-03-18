@@ -8,12 +8,13 @@
 #include <iterator>  // ostream_iterator
 #include <sstream>   // ostringstream
 
+using namespace std;
+
 template <typename T>
 class Digits {
     ...};
 
 int main () {
-    using namespace std;
     cout << "IteratorPattern.c++" << endl;
 
     {
