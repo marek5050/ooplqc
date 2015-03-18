@@ -11,6 +11,14 @@
 
 using namespace std;
 
+template <typename II, typename OI>
+OI my_copy (II b, II e, OI x) {
+    while (b != e) {
+        *x = *b;
+        ++b;
+        ++x;}
+    return x;}
+
 template <typename T>
 class my_ostream_iterator {
     // <your code>
