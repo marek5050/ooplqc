@@ -25,16 +25,16 @@ class Digits {
 
     public:
         class iterator {
+            friend bool operator != (const iterator& lhs, const iterator& rhs) {
+                return lhs._n != rhs._n;}
+
             private:
                 T _n;
 
             public:
-                iterator (T n) :
+                iterator (const T& n) :
                         _n (n)
                     {}
-
-                bool operator != (const iterator& other) {
-                    return _n != other._n;}
 
                 T operator * () {
                     return _n % 10;}
@@ -43,7 +43,7 @@ class Digits {
                     _n /= 10;
                     return *this;}};
 
-        Digits (T n) :
+        Digits (const T& n) :
                 _n (n)
             {}
 
