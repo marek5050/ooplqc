@@ -4,6 +4,7 @@
 
 #include <algorithm> // copy
 #include <cassert>   // assert
+#include <cstddef>   // size_t
 #include <cstring>   // strcmp, strcpy, strlen
 #include <iostream>  // cout, endl
 #include <iterator>  // ostream_iterator

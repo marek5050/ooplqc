@@ -4,6 +4,7 @@
 
 #include <algorithm> // copy
 #include <cassert>   // assert
+#include <cstddef>   // size_t
 #include <cstring>   // strcmp, strcpy, strlen
 #include <iostream>  // cout, endl
 #include <iterator>  // ostream_iterator
@@ -14,8 +15,8 @@ using namespace std;
 
 class my_string {
     private:
-        int   _s;
-        char* _a;
+        size_t _s;
+        char*  _a;
 
     public:
         my_string (const char* a) {
@@ -26,10 +27,10 @@ class my_string {
         ~my_string () {
             delete [] _a;}
 
-        char& operator [] (int i) {
+        char& operator [] (size_t i) {
             return _a[i];}
 
-        const char& operator [] (int i) const {
+        const char& operator [] (size_t i) const {
             return _a[i];}
 
         char* begin () {
@@ -44,7 +45,7 @@ class my_string {
         const char* end () const {
             return _a + _s;}
 
-        int size () const {
+        size_t size () const {
             return _s;}
     };
 
