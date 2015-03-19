@@ -3,7 +3,6 @@
 // ------------------
 
 #include <algorithm> // copy, equal, fill, swap
-#include <algorithm> // fill
 #include <cassert>   // assert
 #include <cstddef>   // size_t
 #include <iostream>  // cout, endl
@@ -75,7 +74,7 @@ class my_vector {
             return _s;}};
 
 int main () {
-    cout << "PolicyPattern2.c++" << endl;
+    cout << "PolicyPattern.c++" << endl;
 
     {
     my_vector<int> x;
