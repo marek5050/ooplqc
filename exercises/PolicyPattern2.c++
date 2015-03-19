@@ -60,7 +60,16 @@ class my_vector {
             return _s;}};
 
 int main () {
-    cout << "PolicyPattern.c++" << endl;
+    cout << "PolicyPattern2.c++" << endl;
+
+    {
+    allocator<int> x;
+    int* p = x.allocate(1);
+    x.construct(p, 2);
+    assert(*p == 2);
+    x.destroy(p);
+    x.deallocate(p, 1);
+    }
 
     {
     my_vector<int> x;
