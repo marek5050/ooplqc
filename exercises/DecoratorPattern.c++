@@ -5,8 +5,9 @@
 // http://en.wikipedia.org/wiki/Decorator_pattern
 // http://en.wikipedia.org/wiki/Open/closed_principle
 
-#include <cassert>  // assert
-#include <iostream> // cout, endl
+#include <cassert>    // assert
+#include <functional> // function
+#include <iostream>   // cout, endl
 
 using namespace std;
 
