@@ -46,7 +46,7 @@ class my_vector {
             // <your code>
             }
 
-        my_vector& operator = (my_vector rhs) {
+        my_vector& operator = (const my_vector& rhs) {
             // <your code>
             return *this;}
 
