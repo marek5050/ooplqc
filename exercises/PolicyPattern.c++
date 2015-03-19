@@ -13,6 +13,23 @@
 
 using namespace std;
 
+template <typename II, typename OI>
+OI my_copy (II b, II e, OI x) {
+    while (b != e) {
+        *x = *b;
+        ++b;
+        ++x;}
+    return x;}
+
+template <typename II1, typename II2>
+bool my_equal (II1 b, II1 e, II2 c) {
+    while (b != e) {
+        if (*b != *c)
+            return false;
+        ++b;
+        ++c;}
+    return true;}
+
 template <typename T>
 class my_vector {
     private:
