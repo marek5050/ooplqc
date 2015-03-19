@@ -3,7 +3,6 @@
 // -----------------
 
 #include <algorithm> // copy, equal, fill, swap
-#include <algorithm> // fill
 #include <cassert>   // assert
 #include <cstddef>   // size_t
 #include <iostream>  // cout, endl
