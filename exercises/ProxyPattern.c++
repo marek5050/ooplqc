@@ -17,10 +17,10 @@ class AbstractShape {
     friend bool operator != (const AbstractShape& lhs, const AbstractShape& rhs) {
         return !(lhs == rhs);}
 
-    friend std::istream& operator >> (std::istream& lhs, AbstractShape& rhs) {
+    friend istream& operator >> (istream& lhs, AbstractShape& rhs) {
         return rhs.read(lhs);}
 
-    friend std::ostream& operator << (std::ostream& lhs, const AbstractShape& rhs) {
+    friend ostream& operator << (ostream& lhs, const AbstractShape& rhs) {
         return rhs.write(lhs);}
 
     private:
@@ -35,9 +35,9 @@ class AbstractShape {
 
         virtual bool equals (const AbstractShape& that) const = 0;
 
-        virtual std::istream& read (std::istream& in) = 0;
+        virtual istream& read (istream& in) = 0;
 
-        virtual std::ostream& write (std::ostream& out) const = 0;
+        virtual ostream& write (ostream& out) const = 0;
 
     public:
         AbstractShape (int x, int y) :
@@ -64,10 +64,10 @@ class AbstractShape {
 bool AbstractShape::equals (const AbstractShape& that) const {
     return (_x == that._x) && (_y == that._y);}
 
-std::istream& AbstractShape::read (std::istream& in) {
+istream& AbstractShape::read (istream& in) {
     return in >> _x >> _y;}
 
-std::ostream& AbstractShape::write (std::ostream& out) const {
+ostream& AbstractShape::write (ostream& out) const {
     return out << _x << " " << _y;}
 
 class Circle : public AbstractShape {
@@ -80,10 +80,10 @@ class Circle : public AbstractShape {
                 return AbstractShape::equals(*p) && (_r == p->_r);
             return false;}
 
-        virtual std::istream& read (std::istream& in) {
+        virtual istream& read (istream& in) {
             return AbstractShape::read(in) >> _r;}
 
-        virtual std::ostream& write (std::ostream& out) const {
+        virtual ostream& write (ostream& out) const {
             return AbstractShape::write(out) << " " << _r;}
 
     public:
