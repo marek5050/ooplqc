@@ -59,7 +59,7 @@ class my_vector {
             return _s;}};
 
 int main () {
-    cout << "PolicyPattern2.c++" << endl;
+    cout << "PolicyPattern.c++" << endl;
 
     {
     allocator<int> x;
